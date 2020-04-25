@@ -1,0 +1,79 @@
+<html>
+    <style>
+        body{
+            overflow-y: hidden;
+        }
+
+        #msg {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .border {
+            border: 3px solid white;
+            float: right;
+            width: 30%;
+            right: 200px;
+            position: absolute;
+            top: 30px;
+            background-color: gray;
+        }
+    </style>
+
+    <body>
+        <div id="hancock" @click="close_hancock" v-show="hancock == true">
+            <div class="border">
+                <p id="msg">{{message}}</p>
+            </div>
+            <img src="../Resource/bluePanguin.png" style="height: 100%;">
+        </div>
+
+        <div id="landlord">
+            <div class="message" style="opacity:0"></div>
+            <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+        </div>
+    </body>
+
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="asset/ws.js"></script>
+
+        
+        <script type="text/javascript">
+            var message_Path = "asset/live2d/";
+            var home_Path = "https://haremu.com/";
+        </script>
+
+        <link rel="stylesheet" href="asset/live2d/css/live2d.css"/>
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript" src="asset/live2d/js/live2d.js"></script>
+        <script type="text/javascript" src="asset/live2d/js/message.js"></script>
+
+        <script type="text/javascript">
+            loadlive2d("live2d", "asset/live2d/model/tia/model.json")
+        </script>
+        <script>
+            window.app = new Vue({
+                el: '#hancock',
+                data: {
+                    hancock: true,
+                    message: '助理啟動成功!請點擊笨企鵝進行隱藏'
+                },
+                mounted: function() {
+                    Websocket_init()
+                },
+                methods: {
+                    show_hancock: function(msg) {
+                        this.hancock = true;
+                        this.message = msg;
+                    },
+                    close_hancock: function() {
+                        this.hancock = false;
+                        send_Order("close_win");
+                    }
+                }
+            })
+        </script>
+    </head>
+</html>

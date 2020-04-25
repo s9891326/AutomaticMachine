@@ -1,0 +1,15 @@
+{
+  "name": "visual_helper",
+  "version": "1.0.0",
+  "description": "虛擬助手",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "eddy",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^6.0.11",
+    "electron-builder": "^21.2.0"
+  }
+}
