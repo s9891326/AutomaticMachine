@@ -41,7 +41,7 @@ class WS():
         pack = {'order': order, 'detail': detail}
         print("Ready send{}".format(pack))
         pack = base64.b64encode(json.dumps(pack).encode())
-        # sound.speak(detail)
+        sound.speak(detail)
         self.ws.send_message_to_all(pack)
 
 
