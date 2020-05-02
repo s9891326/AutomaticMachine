@@ -20,8 +20,8 @@ class WS():
         print("有人加入websocket")
 
     def on_message(self, ws, client, data):
-        print(client)
-        print(data)
+        # print(client)
+        # print(data)
 
 #         通訊協定 json格式 {'order': 自訂指令, 'detail': 發送內容}
         try:
@@ -39,7 +39,7 @@ class WS():
 
     def send_order_to_all(self, order, detail):
         pack = {'order': order, 'detail': detail}
-        print("Ready send{}".format(pack))
+        # print("Ready send{}".format(pack))
         pack = base64.b64encode(json.dumps(pack).encode())
         sound.speak(detail)
         self.ws.send_message_to_all(pack)
