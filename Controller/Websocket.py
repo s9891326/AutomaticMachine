@@ -20,10 +20,7 @@ class WS():
         print("有人加入websocket")
 
     def on_message(self, ws, client, data):
-        # print(client)
-        # print(data)
-
-#         通訊協定 json格式 {'order': 自訂指令, 'detail': 發送內容}
+        # 通訊協定 json格式 {'order': 自訂指令, 'detail': 發送內容}
         try:
             # 編碼方式
             data = base64.b64decode(data).decode()
@@ -41,7 +38,7 @@ class WS():
         pack = {'order': order, 'detail': detail}
         # print("Ready send{}".format(pack))
         pack = base64.b64encode(json.dumps(pack).encode())
-        sound.speak(detail)
+        sound.speak(detail) # 透過google 小姐說出訊息
         self.ws.send_message_to_all(pack)
 
 

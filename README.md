@@ -18,6 +18,43 @@
 * WebSocket GitHub 上的Method
 ![websocket method](Resource/websocketMethod.PNG)
 
+* WebSocket 初始化設定
+```
+def Init_Websocket(self):
+    self.ws = WebsocketServer(7777, host='127.0.0.1')
+    self.ws.set_fn_new_client(self.new_client)
+    self.ws.set_fn_message_received(self.on_message)
+    self.ws.run_forever()
+```
+
+* WebSocket 接收到訊息
+```
+def on_message(self, ws, client, data):
+    #通訊協定 json格式 {'order': 自訂指令, 'detail': 發送內容}
+    try:
+        # 編碼方式
+        data = base64.b64decode(data).decode()
+        cmd = json.loads(data)
+        print(data)
+        if cmd['order'] == "push_msg":
+            self.send_order_to_all(order='notify', detail=cmd['detail'])
+        if cmd['order'] == "close_win":
+            self.main.helper_win_hide()
+    except Exception as e:
+        print("Websocket 接收訊息錯誤格式")
+        print(e)
+```
+
+* WebSocket 發送訊息
+```
+def send_order_to_all(self, order, detail):
+    pack = {'order': order, 'detail': detail}
+    # print("Ready send{}".format(pack))
+    pack = base64.b64encode(json.dumps(pack).encode())
+    sound.speak(detail) # 透過google 小姐說出訊息
+    self.ws.send_message_to_all(pack)
+```
+
 **Flask框架**
 * 是一個使用 Python 撰寫的輕量級 Web 應用程式框架，由於其輕量特性，也稱為 micro-framework（微框架）
 * push就是一個接口，當使用者輸入對應的ip/push/message(message為輸入參數)，就會倒到該function內
