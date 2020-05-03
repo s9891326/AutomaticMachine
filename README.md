@@ -6,9 +6,17 @@
 ### 功能圖
 1. 先透過postman或直接在瀏覽器上面輸入對應的網址觸發api的街口後
 ![postman](Resource/postman.PNG)
+![web](Resource/web.PNG)
 
 2. 虛擬助手在這時就會跳出來跟你說別人輸入了什麼訊息給你
 ![luffy](Resource/result.PNG)
+
+### Need Installation package
+1. pip install git+https://github.com/Pithikos/python-websocket-server  (WebSocket)
+2. pip install flask (api 偵測接口)
+3. pip install pywin32 (虛擬助手顯示隱藏)
+4. pip install MySQL-python (MySql)
+5. pip install playsound (Google小姐聲音)
 
 ### 使用到的技術
 
@@ -130,6 +138,8 @@ def after_request(response):
 >>> - ```exit```
 > - 重啟MySQL
 >> - ```service mysql restart``` 
+> - 修改之後要使用的DB資料表character 
+>> - ```alter table api_process_log convert to character set utf8;```
 
 
 參考網址
