@@ -96,6 +96,6 @@ def after_request(response):
 
 
 參考網址
-> https://github.com/Pithikos/python-websocket-server
-> https://medium.cm/enjoy-life-enjoy-coding/javascript-websocket-%E8%AE%93%E5%89%8D%E5%BE%8C%E7%AB%AF%E6%B2%92%E6%9C%89%E8%B7%9D%E9%9B%A2-34536c333e1b
-> https://andy6804tw.github.io/2019/01/29/ubuntu-mysql-setting/#1-%E7%B7%A8%E8%BC%AF-mysqldcnf
+> - https://github.com/Pithikos/python-websocket-server
+> - https://medium.cm/enjoy-life-enjoy-coding/javascript-websocket-%E8%AE%93%E5%89%8D%E5%BE%8C%E7%AB%AF%E6%B2%92%E6%9C%89%E8%B7%9D%E9%9B%A2-34536c333e1b
+> - https://andy6804tw.github.io/2019/01/29/ubuntu-mysql-setting/#1-%E7%B7%A8%E8%BC%AF-mysqldcnf
