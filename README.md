@@ -92,7 +92,6 @@ def after_request(response):
     return response
 ```
 
-
 **連接MySQL 、 sqlite3**
 > - 資料庫連線
 >> - ```MySQLdb.connect(host=host, user=user, password=password, db=db, charset="utf8")```
@@ -104,6 +103,41 @@ def after_request(response):
 > - 處理錯誤(warning, error, interfaceError....)
 
 **Vue**
+- 結合node.js、electron、live2D套件、以及綁定webSocket
+
+- electron 基本配置
+```
+electronApp
+  ├── package.json (設定資料)
+  ├── index.html (GUI 介面)
+  └── index.js (主程式)
+```
+
+- node.js 初始化
+```
+npm init
+```
+
+- electron 安裝
+```
+electron-init
+npm install electron --save
+npm install electron-builder --save
+```
+
+- webSocket 初始化
+```
+var wsUri = "ws://127.0.0.1:7777";
+var websocket;
+
+function Websocket_init() {
+  websocket = new WebSocket(wsUri);
+  websocket.onopen = function(evt) { onOpen(evt) };
+  websocket.onclose = function(evt) { onClose(evt) };
+  websocket.onmessage = function(evt) { onMessage(evt) };
+  websocket.onerror = function(evt) { onError(evt) };
+}
+```
 
 ### 架設Ubuntu
 > - 設定固定ip
@@ -140,7 +174,6 @@ def after_request(response):
 >> - ```service mysql restart``` 
 > - 修改之後要使用的DB資料表character 
 >> - ```alter table api_process_log convert to character set utf8;```
-
 
 參考網址
 > - https://github.com/Pithikos/python-websocket-server

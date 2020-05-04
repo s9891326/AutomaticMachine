@@ -1,5 +1,4 @@
 var wsUri = "ws://127.0.0.1:7777";
-var output;
 var websocket;
 
 function Websocket_init()
