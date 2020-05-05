@@ -4,12 +4,13 @@
 ![流程圖](Resource/flow.png)
 
 ### 功能圖
-1. 先透過postman或直接在瀏覽器上面輸入對應的網址觸發api的街口後
+1. 先透過postman或直接在瀏覽器上面輸入對應的網址觸發api的接口後
 ![postman](Resource/postman.PNG)
 ![web](Resource/web.PNG)
 
 2. 虛擬助手在這時就會跳出來跟你說別人輸入了什麼訊息給你
-![luffy](Resource/result.PNG)
+![luffy](Resource/result.PNG)<br>
+(魯夫圖片來自於 https://onepiece.fandom.com/zh/wiki/蒙其·D·魯夫)
 
 ### Need Installation package
 1. pip install git+https://github.com/Pithikos/python-websocket-server  (WebSocket)
@@ -24,7 +25,8 @@
 * 是一種讓瀏覽器與伺服器進行一段互動通訊的技術。這個 API 在不必輪詢（poll）伺服器下，讓使用者傳送訊息至伺服器並接受事件驅動回應。
 * [進行websocket 串接測試網址](http://websocket.org/echo.html) (Location : ws://127.0.0.1:7777)
 * WebSocket GitHub 上的Method
-![websocket method](Resource/websocketMethod.PNG)
+![websocket method](Resource/websocketMethod.PNG)<br>
+(來自於 https://github.com/Pithikos/python-websocket-server)
 
 * WebSocket 初始化設定
 ```
