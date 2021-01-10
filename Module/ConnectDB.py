@@ -3,13 +3,15 @@ from datetime import datetime
 
 db_path = "autoMachine.db"
 
+
 class ConnectDB:
     def __init__(self):
         try:
             conn = sqlite3.connect(db_path)
             c = conn.cursor()
-            c.execute("CREATE TABLE if not exists api_process_log (id INTEGER primary key AUTOINCREMENT, url varchar, address varchar, "
-                           "message varchar, query_time time , create_time current_date )")
+            c.execute(
+                "CREATE TABLE if not exists api_process_log (id INTEGER primary key AUTOINCREMENT, url varchar, address varchar, "
+                "message varchar, query_time time , create_time current_date )")
         except sqlite3.Error as error:
             print("connect DB init error ", error)
         finally:
@@ -50,4 +52,3 @@ class ConnectDB:
 # if __name__ == "__main__":
 #     db = ConnectDB()
 #     db.insert("2222", datetime.now())
-

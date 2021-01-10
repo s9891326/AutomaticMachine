@@ -2,9 +2,9 @@ from websocket_server import WebsocketServer
 from NodeUI import sound
 import base64
 import json
-import _thread
 
-class WS():
+
+class WS:
     def __init__(self, main):
         # type : WebsocketServer
         self.ws = None
@@ -38,9 +38,8 @@ class WS():
         pack = {'order': order, 'detail': detail}
         # print("Ready send{}".format(pack))
         pack = base64.b64encode(json.dumps(pack).encode())
-        sound.speak(detail) # 透過google 小姐說出訊息
+        # sound.speak(detail)  # 透過google 小姐說出訊息
         self.ws.send_message_to_all(pack)
-
 
 # if __name__ == "__main__":
 #     obj = WS()

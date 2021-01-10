@@ -2,7 +2,8 @@ from datetime import datetime
 from configparser import ConfigParser
 import MySQLdb
 
-class Mysql():
+
+class Mysql:
     def __init__(self):
         cfg = ConfigParser()
         cfg.read('Resource/resource.ini')
@@ -16,8 +17,10 @@ class Mysql():
         self.cursor = self.db.cursor()
 
     def insert(self, url, address, message, create_time):
-        data = {"url" : url , "address" : address, "message" : message, "create_time" : create_time}
-        self.cursor.execute("insert into api_process_log (url, address, message, create_time) values (%(url)s, %(address)s, %(message)s, %(create_time)s)", data)
+        data = {"url": url, "address": address, "message": message, "create_time": create_time}
+        self.cursor.execute(
+            "insert into api_process_log (url, address, message, create_time) values (%(url)s, %(address)s, %(message)s, %(create_time)s)",
+            data)
         self.db.commit()
         return self.cursor.lastrowid
 
